@@ -1,0 +1,23 @@
+server:
+  port:
+    8080
+
+spring:
+  max-http-request-header-size: 10MB
+  application:
+    name: web-client
+
+api:
+  storage:
+    basicUri: http://localhost:8081/
+  payment:
+    basicUri: http://localhost:8082/
+  service:
+    basicUri: http://localhost:8083/
+  media:
+    basicUri: http://localhost:8084/
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

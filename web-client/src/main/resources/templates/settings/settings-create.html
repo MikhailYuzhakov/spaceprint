@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Параметры оплаты</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+<h2 class="h2">Создание параметров оплаты</h2>
+<form action="#" th:action="@{/settings/create}" th:object="${settings}" method="post">
+    <div class="container">
+        <div>
+            <label class="text-field__label" for="jobPrice">Стоимость работы, руб./час.</label>
+            <input class="text-field__input" type="number" th:field="*{jobPrice}" id="jobPrice" placeholder="400">
+        </div>
+        <div>
+            <label class="text-field__label" for="depreciation">Аммортизаиця</label>
+            <input class="text-field__input" type="number" step="0.1" th:field="*{depreciation}" id="depreciation" placeholder="0.1">
+        </div>
+        <div>
+            <label class="text-field__label" for="electricityPrice">Стоимость электричества, р/Вт/мин</label>
+            <input class="text-field__input" type="number" step="0.01" th:field="*{electricityPrice}" id="electricityPrice" placeholder="0.01">
+        </div>
+        <div>
+            <label class="text-field__label" for="printerPower">Мощность принтера, Вт/мин</label>
+            <input class="text-field__input" type="number" step="0.1" th:field="*{printerPower}" id="printerPower" placeholder="0.1">
+        </div>
+        <div>
+            <label class="text-field__label" for="updateDate">Дата обновления цены</label>
+            <input class="text-field__input" type="date" th:field="*{updateDate}" id="updateDate" placeholder="10.03.2024">
+        </div>
+    </div>
+    <div class="btn_container">
+        <input class="button__create" type="submit" value="Создать">
+    </div>
+</form>
+</body>
+</html>

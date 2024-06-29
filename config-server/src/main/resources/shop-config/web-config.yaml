@@ -1,0 +1,7 @@
+spring:
+  api:
+    basicUri:
+      storage: http://localhost:8081/
+      payment: http://localhost:8082/
+      service: http://localhost:8083/
+      media: http://localhost:8084/

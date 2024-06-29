@@ -1,0 +1,16 @@
+server:
+  port:
+    8082
+spring:
+  application:
+    name: payment-app
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spaceprint
+    username: postgres
+    password: 88admRKS1
+    driver-class-name: org.postgresql.Driver
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

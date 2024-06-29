@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Перечень услуг</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+<div class="cards">
+    <div class="card" th:each="service : ${services}">
+        <div class="card__top">
+            <a th:href="'http://localhost:8080/services/' + ${service.uri}" class="card__image">
+                <img th:src="'/img/' + ${service.id} + '.png'" alt="service image">
+            </a>
+        </div>
+        <div class="card__bottom">
+            <div class="card__prices">
+                <div class="card__price card__price--discount" th:text="${service.price}"></div>
+            </div>
+            <h4 class="card__title" th:text="${service.name}"></h4>
+            <form method="post">
+                <button class="card__add">Заказать</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
