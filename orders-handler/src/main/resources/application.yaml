@@ -1,0 +1,11 @@
+server:
+  port:
+    9090
+
+spring:
+  application:
+    name: orders-handler
+  profiles:
+    active: eclient
+  config:
+    import: configserver:http://localhost:8888

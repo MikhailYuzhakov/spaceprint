@@ -4,10 +4,16 @@
     <file url="file://$PROJECT_DIR$/api-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/openfeign-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/openfeign-server/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/order-storage/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orders-handler/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orders-handler/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/payment-app/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/resource-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/service-list/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/web-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/services-handler/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/services-handler/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web-server/src/main/java" charset="UTF-8" />
   </component>
 </project>

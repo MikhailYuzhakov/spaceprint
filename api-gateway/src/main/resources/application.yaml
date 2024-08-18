@@ -1,6 +1,13 @@
+server:
+  port: 8765
+
 spring:
   application:
     name: api-gateway
+  profiles:
+    active: eclient
 
-server:
-  port: 8079
+  config:
+    import: configserver:http://localhost:8888
+
+

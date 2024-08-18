@@ -2,13 +2,12 @@ spring:
   application:
     name: config-server
   profiles:
-    active: native
+    active: eclient
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:/shop-config
-
+        git:
+          uri: /media/yuzhakovmihail/DATA/04_GeekBrains/08_backend_java_spring/printspace/config-server/src/main/resources/shop-config
 
 server:
   port: 8888

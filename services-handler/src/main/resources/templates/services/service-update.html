@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование услуги</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<h2 class="h2">Редактирование услуги</h2>
+<form action="#" th:action="@{/services/update}" th:object="${service}" method="post">
+    <div class="container">
+        <div>
+            <label class="text-field__label" for="id">ID</label>
+            <input class="text-field__input" readonly type="number" th:field="*{id}" id="id">
+        </div>
+        <div>
+            <label class="text-field__label" for="name">Наименование</label>
+            <input class="text-field__input" type="text" th:field="*{name}" id="name" placeholder="Услуга по 3D печати">
+        </div>
+        <div>
+            <label class="text-field__label" for="description">Описание</label>
+            <input class="text-field__input" type="text" th:field="*{description}" id="description" placeholder="Заказ на печать детали...">
+        </div>
+        <div>
+            <label class="text-field__label" for="price">Цена</label>
+            <input class="text-field__input" type="number" th:field="*{price}" id="price" placeholder="378">
+        </div>
+        <div>
+            <label class="text-field__label" for="uri">Адрес страницы</label>
+            <input class="text-field__input" type="text" th:field="*{uri}" id="uri" placeholder="printing">
+        </div>
+        <div>
+            <label class="text-field__label" for="imageUri">Изображение</label>
+            <input class="text-field__input" type="text" th:field="*{imageUri}" id="imageUri" placeholder="C:/Users/...">
+        </div>
+    </div>
+    <div class="btn_container">
+        <input class="button__create" type="submit" value="Сохранить">
+    </div>
+</form>
+</body>
+</html>

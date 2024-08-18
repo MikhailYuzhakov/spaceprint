@@ -4,8 +4,7 @@ server:
 spring:
   application:
     name: resource-server
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
+  profiles:
+    active: eclient
+  config:
+    import: configserver:http://localhost:8888

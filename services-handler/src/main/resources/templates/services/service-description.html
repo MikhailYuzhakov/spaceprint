@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${service.name}"></title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body th:object="${service}">
+<div class="container">
+    <div class="title">
+        ОПИСАНИЕ УСЛУГИ
+        <a th:href="@{/services/update/{id}(id=${service.id})}" class="edit_image">
+            <img src="/img/editImg.png" alt="settings image"/>
+        </a>
+    </div>
+    <div class="detail">
+        <div class="image">
+            <a th:href="@{/services/service-image-update/{id}(id=${service.id})}" class="card_order__image">
+                <img th:src="'data:image/jpeg;base64,' + ${image}" onerror="this.src='/img/not_found.png'" alt="not found image"/>
+            </a>
+        </div>
+        <div class="content">
+            <h1 class="name" th:text="${service.name}"></h1>
+            <div class="price" th:text="'₽ ' + ${service.price}"></div>
+            <div class="buttons">
+                <form th:action="@{/services/purchase/{id}(id=${service.id})}" method="get">
+                    <button>Заказать</button>
+                </form>
+                <button>В корзину</button>
+            </div>
+            <div class="description" th:text="${service.description}"></div>
+        </div>
+    </div>
+    <div class="title">ОСТАЛЬНЫЕ ПРОДУКТЫ</div>
+    <div class="listProducts">
+        <a th:each="index : ${#numbers.sequence(0, #arrays.length(services) - 1)}" th:href="'http://localhost:9091/services/' + ${services[index].uri}" class="item">
+            <img th:src="'data:image/jpeg;base64,' + ${images[index]}" onerror="this.src='/img/not_found.png'" alt="not found image"/>
+            <h2 th:text="${services[index].name}"></h2>
+            <div class="price" th:text="'₽ ' + ${services[index].price}"></div>
+        </a>
+    </div>
+</div>
+</body>
+</html>

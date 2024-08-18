@@ -12,9 +12,11 @@ import java.util.UUID;
  * Контроллер сервера ресурсов.
  */
 @RestController
+@RequestMapping("/media")
 public class ResourceController {
 
-    private final String UPLOAD_DIR = "C:\\Users\\OBI.DGZKS\\Desktop\\taskmanager\\10_IT\\printspace\\resource-server\\media\\";
+    //перенести эту переменную в конфиг
+    private final String UPLOAD_DIR = "/media/yuzhakovmihail/DATA/04_GeekBrains/08_backend_java_spring/printspace/resource-server/media/";
 
     @PostMapping
     public String getImage() {
@@ -28,7 +30,7 @@ public class ResourceController {
      */
     @PostMapping("/{uriImage}")
     public ResponseEntity<byte[]> getImageCat(@PathVariable("uriImage") String uriImage) throws IOException {
-        String path = "C:\\Users\\OBI.DGZKS\\Desktop\\taskmanager\\10_IT\\printspace\\resource-server\\media\\" + uriImage;
+        String path = UPLOAD_DIR + uriImage;
         InputStream in = new FileInputStream(path);
         byte[] image = in.readAllBytes();
         HttpHeaders headers = new HttpHeaders();

@@ -8,6 +8,7 @@ import ru.yuzhakov.order_storage.service.OrderService;
 import java.util.List;
 
 @RestController
+@RequestMapping("/storage")
 public class RestOrderController {
     private final OrderService service;
 

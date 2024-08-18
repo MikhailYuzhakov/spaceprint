@@ -22,12 +22,16 @@ public class MyService implements Comparable<MyService> {
     @Column(name = "uri")
     private String uri;
 
-    public MyService(Long id, String name, String description, Integer price, String uri) {
+    @Column(name = "image_uri")
+    private String imageUri;
+
+    public MyService(Long id, String name, String description, Integer price, String uri, String imageUri) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.uri = uri;
+        this.imageUri = imageUri;
     }
 
     public MyService() {
@@ -71,6 +75,14 @@ public class MyService implements Comparable<MyService> {
 
     public void setUri(String uri) {
         this.uri = uri;
+    }
+
+    public String getImageUri() {
+        return imageUri;
+    }
+
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
     }
 
     @Override

@@ -1,0 +1,11 @@
+server:
+  port:
+    9091
+
+spring:
+  application:
+    name: services-handler
+  profiles:
+    active: eclient
+  config:
+    import: configserver:http://localhost:8888

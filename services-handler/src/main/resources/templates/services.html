@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Услуги</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">ПЕРЕЧЕНЬ УСЛУГ</div>
+        <div class="listProducts" th:object="${images}">
+            <a th:each="index : ${#numbers.sequence(0, #arrays.length(services) - 1)}" th:href="'http://localhost:9091/services/' + ${services[index].uri}" class="item">
+                <img th:src="'data:image/jpeg;base64,' + ${images[index]}" onerror="this.src='img/not_found.png'" alt="not found image"/>
+                <h2 th:text="${services[index].name}"></h2>
+                <div class="price" th:text="${services[index].price} + ' ₽'"></div>
+            </a>
+            <a th:href="@{/services/create}" class="item">
+                <h1>+</h1>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

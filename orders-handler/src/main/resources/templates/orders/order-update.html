@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание заказа</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+<h2 class="h2">Редактирование заказа</h2>
+<form action="#" th:action="@{/orders/order-update}" th:object="${order}" method="post">
+    <div class="container">
+        <div>
+            <label class="text-field__label" for="id">ID</label>
+            <input class="text-field__input" readonly type="number" th:field="*{id}" id="id">
+        </div>
+        <div>
+            <label class="text-field__label" for="description">Описание</label>
+            <input class="text-field__input" type="text" th:field="*{description}" id="description" placeholder="Заказ на печать детали...">
+        </div>
+        <div>
+            <label class="text-field__label" for="dateStart">Дата поступления</label>
+            <input class="text-field__input" type="date" th:field="*{dateStart}" id="dateStart" placeholder="10.03.2024">
+        </div>
+        <div>
+            <label class="text-field__label" for="deadline">Срок исполнения</label>
+            <input class="text-field__input" type="date" th:field="*{deadline}" id="deadline" placeholder="15.03.2024">
+        </div>
+        <div>
+            <label class="text-field__label" for="personId">ID заказчика</label>
+            <input class="text-field__input" type="number" th:field="*{personId}" id="personId" placeholder="12">
+        </div>
+        <div>
+            <label class="text-field__label" for="modelingTime">Время моделирования, мин.</label>
+            <input class="text-field__input" type="number" th:field="*{modelingTime}" id="modelingTime" placeholder="57">
+        </div>
+        <div>
+            <label class="text-field__label" for="printingTime">Время печати, мин.</label>
+            <input class="text-field__input" type="number" th:field="*{printingTime}" id="printingTime" placeholder="17">
+        </div>
+        <div>
+            <label class="text-field__label" for="extraCharge">Наценка, %</label>
+            <input class="text-field__input" type="number" th:field="*{extraCharge}" id="extraCharge" placeholder="150">
+        </div>
+        <div>
+            <label class="text-field__label" for="plasticCost">Стоимость пластика, руб.</label>
+            <input class="text-field__input" type="number" th:field="*{plasticCost}" id="plasticCost" placeholder="12">
+        </div>
+        <div>
+            <label class="text-field__label" for="quantity">Количество, ед.</label>
+            <input class="text-field__input" type="number" th:field="*{quantity}" id="quantity" placeholder="15">
+        </div>
+        <div>
+            <label class="text-field__label" for="note">Примечание</label>
+            <input class="text-field__input" type="text" th:field="*{note}" id="note" placeholder="Примечание">
+        </div>
+        <div>
+            <label class="text-field__label" for="status-select" th:text="'Статус заказа (' + ${currentStatus} + ')'"></label>
+            <select name="orderStatus" id="status-select">
+                <option value="0">Выберите статус</option>
+                <option th:each="status : ${statuses}" th:value="${status}" th:text="${status}"></option>
+            </select>
+        </div>
+        <div>
+            <label class="text-field__label" for="result-select"  th:text="'Результат (' + ${currentResult} + ')'"></label>
+            <select name="orderResult" id="result-select">
+                <option value="0">Выберите результат</option>
+                <option th:each="result : ${results}" th:value="${result}" th:text="${result}"></option>
+            </select>
+        </div>
+        <div>
+            <label class="text-field__label" for="result-select" th:field="*{imageUri}" th:text="'Путь к изображению: (' + ${imageUri} + ')'"></label>
+            <div class="card_order__image">
+                <img th:src="'data:image/jpeg;base64,' + ${image}" onerror="this.src='img/not_found.png'" alt="not found image"/>
+            </div>
+        </div>
+    </div>
+    <div class="btn_container">
+        <input class="button__create" type="submit" value="Сохранить">
+    </div>
+</form>
+</body>
+</html>
