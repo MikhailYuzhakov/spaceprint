@@ -1,0 +1,1 @@
+Order(id=null, description=test_integration, dateStart=Sat Feb 15 00:00:00 MSK 2025, deadline=Mon Feb 17 00:00:00 MSK 2025, personId=12, modelingPrice=336, printingPrice=12, price=1116, orderStatus=CONNECT, orderResult=INPROGRESS, imageUri=null, modelingTime=56, printingTime=33, extraCharge=156, plasticCost=12, quantity=23, note=test, npv=840)

@@ -1,0 +1,1 @@
+MyService{id=null, name='test integration', description='test file integration', price=345}

@@ -2,7 +2,6 @@ package ru.yuzhakov.order_storage.actuator;
 
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
 import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.stereotype.Component;
@@ -13,15 +12,14 @@ import java.util.List;
 
 @Component
 @Endpoint(id = "getDatabaseMetrics")
-public class databaseEndpoint {
+public class DatabaseEndpoint implements DatabaseMetricsProvider {
     private final OrdersRepository repository;
-    private final Counter requestsCounter;
 
-    public databaseEndpoint(OrdersRepository repository, MeterRegistry meterRegistry) {
+    public DatabaseEndpoint(OrdersRepository repository) {
         this.repository = repository;
-        requestsCounter = meterRegistry.counter("db_metrics_counter");
     }
 
+    @Override
     @ReadOperation
     public List<DatabaseMetrics> getMetrics() {
         List<DatabaseMetrics> metrics = new ArrayList<>();
@@ -29,33 +27,6 @@ public class databaseEndpoint {
         metrics.add(new DatabaseMetrics("accounts_qty", repository.countAccounts()));
         metrics.add(new DatabaseMetrics("services_qty", repository.countServices()));
         metrics.add(new DatabaseMetrics("payment_settings_qty", repository.countPaymentSettings()));
-        requestsCounter.increment();
         return metrics;
-    }
-
-    public static class DatabaseMetrics {
-        private String name;
-        private Integer rowCount;
-
-        public DatabaseMetrics(String name, Integer rowCount) {
-            this.name = name;
-            this.rowCount = rowCount;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public Integer getRowCount() {
-            return rowCount;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public void setRowCount(Integer rowCount) {
-            this.rowCount = rowCount;
-        }
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.yuzhakov.services_handler.model.MyService;
+import ru.yuzhakov.services_handler.service.FileGateway;
 import ru.yuzhakov.services_handler.service.MediaService;
 import ru.yuzhakov.services_handler.service.MyServiceService;
 import ru.yuzhakov.services_handler.service.UploadService;
@@ -22,6 +23,7 @@ public class ServiceController {
     private final MyServiceService service;
     private final MediaService mediaService;
     private final UploadService uploadService;
+    private final FileGateway fileGateway;
     private String imageUri;
     private Long serviceId;
 
@@ -58,6 +60,7 @@ public class ServiceController {
     @PostMapping("/create")
     public String createService(MyService myService) {
         service.editService(myService, false);
+        fileGateway.writeToFile("service_" + myService.getName() + ".txt", myService.toString());
         return "redirect:/services";
     }
 

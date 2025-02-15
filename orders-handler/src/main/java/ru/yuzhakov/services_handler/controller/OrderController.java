@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.yuzhakov.services_handler.model.Order;
 import ru.yuzhakov.services_handler.model.common.OrderResult;
 import ru.yuzhakov.services_handler.model.common.OrderStatus;
+import ru.yuzhakov.services_handler.service.FileGateway;
 import ru.yuzhakov.services_handler.service.MediaService;
 import ru.yuzhakov.services_handler.service.OrderService;
 import ru.yuzhakov.services_handler.service.UploadService;
@@ -28,6 +29,7 @@ public class OrderController {
     private final OrderService service;
     private final MediaService mediaService;
     private final UploadService uploadService;
+    private final FileGateway fileGateway;
     private Long orderId;
     private String imageUri;
 
@@ -75,6 +77,7 @@ public class OrderController {
             return "orders/order-create";
         }
         service.editOrder(order, false);
+        fileGateway.writeToFile("order_" + order.getDateStart().toString() + ".txt", order.toString());
         return "redirect:/orders";
     }
 
