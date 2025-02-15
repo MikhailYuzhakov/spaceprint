@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="printspace" type="CompoundRunConfigurationType">
+    <toRun name="api-gateway" type="Application" />
+    <toRun name="config-server" type="Application" />
+    <toRun name="eureka-server" type="Application" />
+    <toRun name="order-storage" type="Application" />
+    <toRun name="orders-handler" type="Application" />
+    <toRun name="payment-app" type="Application" />
+    <toRun name="resource-server" type="Application" />
+    <toRun name="service-handler" type="Application" />
+    <toRun name="service-list" type="Application" />
+    <method v="2" />
+  </configuration>
+</component>

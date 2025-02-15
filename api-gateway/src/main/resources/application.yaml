@@ -10,4 +10,8 @@ spring:
   config:
     import: configserver:http://localhost:8888
 
-
+info:
+  app:
+    name: "spaceprint api gateway"
+    version: "0.0.1"
+    description: "microservices is routed by this app"

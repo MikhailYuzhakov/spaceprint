@@ -28,6 +28,7 @@
         <div>
             <label class="text-field__label" for="modelingTime">Время моделирования, мин.</label>
             <input class="text-field__input" type="number" th:field="*{modelingTime}" id="modelingTime" placeholder="57">
+            <p th:if="${#fields.hasErrors('modelingTime')}">Invalid Age</p>
         </div>
         <div>
             <label class="text-field__label" for="printingTime">Время печати, мин.</label>

@@ -27,7 +27,7 @@ public class SettingsService {
 
     public Settings getSettingsById(Long id) {
         RestTemplate template = new RestTemplate();
-        String url = settingsApi.getBasicUri() + "getById/" + id;
+        String url = settingsApi.getBasicUri() + "/getById/" + id;
         ResponseEntity<Settings> response = template.exchange(url, HttpMethod.GET,
                 null, new ParameterizedTypeReference<>() {});
         return response.getBody();
@@ -36,8 +36,8 @@ public class SettingsService {
     public void editSettings(Settings settings, boolean isSettingsExist) {
         RestTemplate template = new RestTemplate();
         String url = settingsApi.getBasicUri();
-        if (isSettingsExist) url += "update";
-        else url += "create";
+        if (isSettingsExist) url += "/update";
+        else url += "/create";
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -47,7 +47,7 @@ public class SettingsService {
     }
 
     public void delete(Long id) {
-        String url = settingsApi.getBasicUri() + "delete/" + id;
+        String url = settingsApi.getBasicUri() + "/delete/" + id;
         RestTemplate template = new RestTemplate();
         template.getForEntity(url, Long.class);
     }

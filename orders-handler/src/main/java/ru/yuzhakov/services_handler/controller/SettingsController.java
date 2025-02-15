@@ -2,6 +2,7 @@ package ru.yuzhakov.services_handler.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +13,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/settings")
-@AllArgsConstructor
-@NoArgsConstructor(force = true)
+@RequiredArgsConstructor
 public class SettingsController {
     private final SettingsService service;
 

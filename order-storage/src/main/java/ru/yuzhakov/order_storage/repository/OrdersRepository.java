@@ -14,4 +14,24 @@ public interface OrdersRepository extends JpaRepository<Order, Long> {
     @Modifying
     @Query("update Order o set o.imageUri = :imageUri where o.id = :id")
     void updateImageUriById(@Param("imageUri") String imageUri, @Param("id") Long id);
+
+    @Query(
+            value = "SELECT COUNT(*) FROM spaceprint.orders",
+            nativeQuery = true)
+    Integer countOrders();
+
+    @Query(
+            value = "SELECT COUNT(*) FROM spaceprint.accounts",
+            nativeQuery = true)
+    Integer countAccounts();
+
+    @Query(
+            value = "SELECT COUNT(*) FROM spaceprint.services",
+            nativeQuery = true)
+    Integer countServices();
+
+    @Query(
+            value = "SELECT COUNT(*) FROM spaceprint.payment_settings",
+            nativeQuery = true)
+    Integer countPaymentSettings();
 }

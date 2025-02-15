@@ -1,10 +1,12 @@
 package ru.yuzhakov.services_handler.controller;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.yuzhakov.services_handler.model.Order;
@@ -67,7 +69,11 @@ public class OrderController {
     }
 
     @PostMapping("/order-create")
-    public String createOrder(Order order) {
+    public String createOrder(@Valid Order order, BindingResult result) {
+        //тут бы надо выкидывать исключение на веб-морду
+        if (result.hasErrors()) {
+            return "orders/order-create";
+        }
         service.editOrder(order, false);
         return "redirect:/orders";
     }

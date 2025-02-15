@@ -1,5 +1,7 @@
 package ru.yuzhakov.services_handler.model;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -23,7 +25,12 @@ public class Order {
     private OrderStatus orderStatus;
     private OrderResult orderResult;
     private String imageUri;
+
+    @NotEmpty(message = "Время моделирования должно быть заполнено")
+    @PositiveOrZero(message = "Значание не должно быть отрицательным")
     private Integer modelingTime;
+    @NotEmpty(message = "Время моделирования должно быть заполнено")
+    @PositiveOrZero(message = "Значание не должно быть отрицательным")
     private Integer printingTime;
     private Integer extraCharge;
     private Integer plasticCost;
