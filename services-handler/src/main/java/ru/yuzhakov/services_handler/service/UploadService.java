@@ -17,7 +17,7 @@ public class UploadService {
     private final MediaApi mediaApi;
 
     public void uploadFile(MultipartFile file, String filename) throws IOException {
-        String url = mediaApi.getBasicUri() + "download/" + filename;
+        String url = mediaApi.getUploadUri() + filename;
 
         byte[] imageByteArray = file.getBytes();
         RestTemplate template = new RestTemplate();

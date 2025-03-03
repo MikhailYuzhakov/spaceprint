@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Заказы</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static-res-orders/static/css/styles.css">
 </head>
 <body>
 <div th:switch="${orders}">
@@ -17,8 +17,8 @@
                 <h2 class="h2">Заказы</h2>
             </div>
             <div>
-                <a href="http://77.37.160.110:9090/settings" class="setting_image">
-                    <img src="/img/settings.png" alt="settings image"/>
+                <a href="http://localhost:8080/settings" class="setting_image">
+                    <img src="/img-res-orders/img/settings.png" alt="settings image"/>
                 </a>
             </div>
         </div>
@@ -47,7 +47,7 @@
                 <td th:text="${orders[index].orderStatus}"></td>
                 <td>
                     <a href="#" class="card_order_status__image">
-                        <img th:src="'/img/' + ${orders[index].orderResult} + '.png'" alt="edit image"/>
+                        <img th:src="'/img-res-orders/img/' + ${orders[index].orderResult} + '.png'" alt="edit image"/>
                     </a>
                 </td>
                 <td th:text="${orders[index].printingPrice} + ' руб.'"></td>
@@ -56,14 +56,14 @@
                 <td th:text="${orders[index].npv} + ' руб.'"></td>
                 <td th:object="${images}">
                     <a th:href="@{/orders/order-image-update/{id}(id=${orders[index].id})}" class="card_order__image">
-                        <img th:src="'data:image/jpeg;base64,' + ${images[index]}" onerror="this.src='img/not_found.png'" alt="not found image"/>
+                        <img th:src="'data:image/jpeg;base64,' + ${images[index]}" onerror="this.src='/img-res-orders/img/not_found.png'" alt="not found image"/>
                     </a>
                 </td>
                 <td><a th:href="@{/orders/order-update/{id}(id=${orders[index].id})}" class="edit_image">
-                    <img src="/img/editImg.png" alt="edit image">
+                    <img src="/img-res-orders/img/editImg.png" alt="edit image">
                 </a></td>
                 <td><a th:href="@{/orders/order-delete/{id}(id=${orders[index].id})}" class="edit_image">
-                    <img src="/img/deleteImg.png" alt="edit image">
+                    <img src="/img-res-orders/img/deleteImg.png" alt="edit image">
                 </a></td>
             </tr>
             </tbody>

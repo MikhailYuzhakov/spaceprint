@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Создание услуги</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static-res-services/static/css/style.css">
 </head>
 <body>
-<h2 class="h2">Создание новой услуги</h2>
+<div class="container">
+    <div class="title">СОЗДАНИЕ УСЛУГИ</div>
+</div>
+
 <form action="#" th:action="@{/services/create}" th:object="${service}" method="post">
     <div class="container">
         <div>

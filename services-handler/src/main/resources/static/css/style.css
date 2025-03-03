@@ -164,6 +164,12 @@ button:hover{
     }
 }
 
+.cross_img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
 .edit_image {
     width: 10%;
     height: 100%;

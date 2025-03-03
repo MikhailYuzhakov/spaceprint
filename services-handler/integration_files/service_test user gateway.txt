@@ -1,0 +1,1 @@
+MyService{id=null, name='test user gateway', description='Подключил шлюз на входе в приложение, тестовая услуга', price=9999, uri='gateway', imageUri='null'}

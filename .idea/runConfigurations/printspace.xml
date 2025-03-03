@@ -9,6 +9,7 @@
     <toRun name="resource-server" type="Application" />
     <toRun name="service-handler" type="Application" />
     <toRun name="service-list" type="Application" />
+    <toRun name="user-gateway" type="Application" />
     <method v="2" />
   </configuration>
 </component>

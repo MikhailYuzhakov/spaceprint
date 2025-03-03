@@ -1,6 +1,8 @@
 package ru.yuzhakov.services_handler.service;
 
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -20,6 +23,7 @@ public class MyServiceService {
     private final ServiceApi serviceApi;
     private final PaymentService paymentService;
     private final MediaService mediaService;
+    private static final Logger logger = LoggerFactory.getLogger(MyServiceService.class);
 
     public List<MyService> getAllServices() {
         RestTemplate template = new RestTemplate();
@@ -61,6 +65,19 @@ public class MyServiceService {
         template.postForEntity(url, entity, MyService.class); //отправляем POST запрос
     }
 
+    /**
+     * Удаляет услугу по ID.
+     * @param id идентификатор услуги.
+     */
+    public void deleteService(Long id) {
+        String deletedServiceUri = serviceApi.getBasicUri() + "/delete/" + id;
+        String deletedImageUUID =  get(id).getImageUri();
+
+        RestTemplate template = new RestTemplate();
+        template.getForEntity(deletedServiceUri, Long.class);
+        mediaService.deleteImage(deletedImageUUID);
+    }
+
     public void purchaseService(Long serviceId) {
         Long userId = 1L; //заглушка для указания Id покупателя
         Long storeId = 2L; //заглушка для указания Id магазина (продавца)
@@ -90,11 +107,7 @@ public class MyServiceService {
 
         for (MyService myService : myServices) {
             String imageUri = myService.getImageUri();
-            if (imageUri == null) {
-                images.add("0");
-            } else {
-                images.add(mediaService.getImage(imageUri));
-            }
+            images.add(mediaService.getImage(imageUri));
         }
         return images;
     }

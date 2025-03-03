@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${service.name}"></title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static-res-services/static/css/style.css">
 </head>
 <body th:object="${service}">
 <div class="container">
     <div class="title">
+        <a href="http://localhost:8080/services" class="edit_image">
+            <img src="/img-res-services/img/home.png" alt="home image"/>
+        </a>
         ОПИСАНИЕ УСЛУГИ
         <a th:href="@{/services/update/{id}(id=${service.id})}" class="edit_image">
-            <img src="/img/editImg.png" alt="settings image"/>
+            <img src="/img-res-services/img/editImg.png" alt="settings image"/>
+        </a>
+        <a th:href="@{/services/delete/{id}(id=${service.id})}" class="edit_image">
+            <img src="/img-res-services/img/cross.png" alt="cross image"/>
         </a>
     </div>
     <div class="detail">
@@ -33,7 +39,7 @@
     </div>
     <div class="title">ОСТАЛЬНЫЕ ПРОДУКТЫ</div>
     <div class="listProducts">
-        <a th:each="index : ${#numbers.sequence(0, #arrays.length(services) - 1)}" th:href="'http://localhost:9091/services/' + ${services[index].uri}" class="item">
+        <a th:each="index : ${#numbers.sequence(0, #arrays.length(services) - 1)}" th:href="'http://localhost:8080/services/' + ${services[index].uri}" class="item">
             <img th:src="'data:image/jpeg;base64,' + ${images[index]}" onerror="this.src='/img/not_found.png'" alt="not found image"/>
             <h2 th:text="${services[index].name}"></h2>
             <div class="price" th:text="'₽ ' + ${services[index].price}"></div>

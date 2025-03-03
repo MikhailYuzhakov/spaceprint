@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Редактирование услуги</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static-res-services/static/css/style.css">
 </head>
 <body>
-<h2 class="h2">Редактирование услуги</h2>
+<div class="container">
+    <div class="title">РЕДАКТИРОВАНИЕ УСЛУГИ</div>
+</div>
+
 <form action="#" th:action="@{/services/update}" th:object="${service}" method="post">
     <div class="container">
         <div>
@@ -31,7 +34,7 @@
         </div>
         <div>
             <label class="text-field__label" for="imageUri">Изображение</label>
-            <input class="text-field__input" type="text" th:field="*{imageUri}" id="imageUri" placeholder="C:/Users/...">
+            <input class="text-field__input" readonly type="text" th:field="*{imageUri}" id="imageUri" placeholder="C:/Users/...">
         </div>
     </div>
     <div class="btn_container">

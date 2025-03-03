@@ -23,6 +23,7 @@
         <option value="$PROJECT_DIR$/orders-handler/pom.xml" />
         <option value="$PROJECT_DIR$/web-server/pom.xml" />
         <option value="$PROJECT_DIR$/services-handler/pom.xml" />
+        <option value="$PROJECT_DIR$/user-gateway/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

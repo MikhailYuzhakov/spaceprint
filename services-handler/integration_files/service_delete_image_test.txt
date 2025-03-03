@@ -1,0 +1,1 @@
+MyService{id=null, name='delete_image_test', description='test на удаление картинки при удаление сервиса', price=8888, uri='image_deleting', imageUri='null'}

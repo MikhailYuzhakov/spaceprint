@@ -2,6 +2,10 @@ server:
   port:
     8081
 
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+
 spring:
   application:
     name: order-storage

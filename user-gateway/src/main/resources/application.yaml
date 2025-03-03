@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+
+spring:
+  application:
+    name: user-gateway
+  profiles:
+    active: eclient
+  config:
+    import: configserver:http://localhost:8888

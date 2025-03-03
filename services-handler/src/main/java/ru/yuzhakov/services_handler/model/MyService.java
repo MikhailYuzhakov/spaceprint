@@ -72,6 +72,8 @@ public class MyService {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
+                ", uri='" + uri + '\'' +
+                ", imageUri='" + imageUri + '\'' +
                 '}';
     }
 }

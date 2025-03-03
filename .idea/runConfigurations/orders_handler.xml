@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="orders-handler" type="Application" factoryName="Application">
     <option name="ALTERNATIVE_JRE_PATH" value="22" />
-    <option name="MAIN_CLASS_NAME" value="ru.yuzhakov.services_handler.OrdersHandlerApplication" />
+    <option name="MAIN_CLASS_NAME" value="ru.yuzhakov.orders_handler.OrdersHandlerApplication" />
     <module name="orders-handler" />
     <method v="2">
       <option name="Make" enabled="true" />

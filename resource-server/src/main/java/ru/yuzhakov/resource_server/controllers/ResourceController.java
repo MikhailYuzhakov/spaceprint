@@ -1,56 +1,64 @@
 package ru.yuzhakov.resource_server.controllers;
 
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import ru.yuzhakov.resource_server.services.FileGateway;
+import ru.yuzhakov.resource_server.services.ImageService;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.*;
-import java.util.UUID;
 
 /**
  * Контроллер сервера ресурсов.
  */
 @RestController
 @RequestMapping("/media")
+@RequiredArgsConstructor
 public class ResourceController {
+    private final ImageService imageService;
 
-    //перенести эту переменную в конфиг
-    private final String UPLOAD_DIR = "/media/yuzhakovmihail/DATA/04_GeekBrains/08_backend_java_spring/printspace/resource-server/media/";
-    @Autowired
-    private final FileGateway fileGateway;
-
-    public ResourceController(FileGateway fileGateway) {
-        this.fileGateway = fileGateway;
+    @GetMapping("/download/{uriImage}")
+    public void getImage(@PathVariable("uriImage") String uriImage, HttpServletResponse response) {
+        imageService.getImageAsBase64(uriImage, response);
     }
 
-    @PostMapping
-    public String getImage() {
-        return "notImage";
+    @GetMapping("/delete/{uriImage}")
+    public void deleteImage(@PathVariable("uriImage") String uriImage, HttpServletResponse response) {
+        imageService.delete(uriImage, response);
     }
 
-    /**
-     * Получение изображения кота.
-     * @return ответ с массивом байтов.
-     * @throws IOException исключения при обработке файла с изображением.
-     */
-    @PostMapping("/{uriImage}")
-    public ResponseEntity<byte[]> getImageCat(@PathVariable("uriImage") String uriImage) throws IOException {
-        String path = UPLOAD_DIR + uriImage;
-        InputStream in = new FileInputStream(path);
-        byte[] image = in.readAllBytes();
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.IMAGE_JPEG);
-        return new ResponseEntity<>(image, headers, HttpStatus.OK);
+    @PostMapping("/upload/{uriImage}")
+    public void uploadImage(@RequestBody byte[] imageBytesArray, @PathVariable String uriImage) {
+        imageService.uploadImage(imageBytesArray, uriImage);
     }
 
-    @PostMapping("/download/{uriImage}")
-    public void uploadImage(@RequestBody byte[] imageBytesArray, @PathVariable String uriImage) throws IOException {
-        try (OutputStream out = new BufferedOutputStream(new FileOutputStream(UPLOAD_DIR + uriImage))) {
-            out.write(imageBytesArray);
-            fileGateway.writeToFile(uriImage , imageBytesArray); //просто демонстрирует возможность копирования изображения через spring integration
-        }
-    }
+
+//    /**
+//     * Получение изображения кота.
+//     * @return ответ с массивом байтов.
+//     * @throws IOException исключения при обработке файла с изображением.
+//     */
+//    @PostMapping("/{uriImage}")
+//    public ResponseEntity<byte[]> getImage(@PathVariable("uriImage") String uriImage) throws IOException {
+//        String path = UPLOAD_DIR + uriImage;
+//        InputStream in = new FileInputStream(path);
+//        byte[] image = in.readAllBytes();
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setContentType(MediaType.IMAGE_JPEG);
+//        in.close();
+//        return new ResponseEntity<>(image, headers, HttpStatus.OK);
+//    }
+
+
+
+//    @PostMapping("/download/{uriImage}")
+//    public void uploadImage(@RequestBody byte[] imageBytesArray, @PathVariable String uriImage) throws IOException {
+//        try (OutputStream out = new BufferedOutputStream(new FileOutputStream(UPLOAD_DIR + uriImage))) {
+//            out.write(imageBytesArray);
+//            fileGateway.writeToFile(uriImage , imageBytesArray); //просто демонстрирует возможность копирования изображения через spring integration
+//        }
+//    }
+
+
 }

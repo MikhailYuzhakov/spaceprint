@@ -15,5 +15,7 @@ import org.springframework.stereotype.Component;
 @Setter
 public class MediaApi
 {
-    private String basicUri;
+    private String downloadUri;
+    private String uploadUri;
+    private String deleteUri;
 }

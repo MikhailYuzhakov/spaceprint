@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/user-gateway/src/main/resources/archetype-resources" includeSubdirectories="true" />
+    </excludeFromCompile>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
@@ -13,7 +16,7 @@
         <module name="resource-server" />
         <module name="api-gateway" />
         <module name="eureka-server" />
-        <module name="services-handler" />
+        <module name="user-gateway" />
       </profile>
       <profile name="Annotation profile for services-handler" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -22,7 +25,7 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
-        <module name="web-server" />
+        <module name="services-handler" />
         <module name="orders-handler" />
         <module name="payment-app" />
       </profile>
@@ -43,7 +46,7 @@
       <module name="resource-server" options="-parameters" />
       <module name="service-list" options="-parameters" />
       <module name="services-handler" options="-parameters" />
-      <module name="web-server" options="-parameters" />
+      <module name="user-gateway" options="-parameters" />
       <module name="web-server (2)" options="-parameters" />
     </option>
   </component>

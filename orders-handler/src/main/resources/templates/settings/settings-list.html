@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Параметры расчета</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static-res-orders/static/css/styles.css">
 </head>
 <body>
 <div th:switch="${settings}">
     <h2 th:case="null">Параметров не найдено!</h2>
     <div th:case="*">
-        <h2 class="h2">Параметры расчета</h2>
+        <div class="title">
+            <a href="http://localhost:8080/orders" class="edit_image">
+                <img src="/img-res-services/img/home.png" alt="home image"/>
+            </a>ПАРАМЕТРЫ РАСЧЕТА
+        </div>
         <table class="table">
             <thead>
             <tr>
                 <th>ID</th>
                 <th>Стоимость работы</th>
-                <th>Аммортизаиця</th>
+                <th>Аммортизация</th>
                 <th>Стоимость электричества</th>
                 <th>Мощность принтера, Вт/мин</th>
                 <th>Дата обновления цены</th>
@@ -32,10 +36,10 @@
                 <td th:text="${settings[index].printerPower} + ' Вт/мин'"></td>
                 <td th:text="${#dates.format(settings[index].updateDate, 'dd.MM.yyyy')}"></td>
                 <td><a th:href="@{/settings/update/{id}(id=${settings[index].id})}" class="edit_image">
-                    <img src="/img/editImg.png" alt="edit image">
+                    <img src="/img-res-orders/img/editImg.png" alt="edit image">
                 </a></td>
                 <td><a th:href="@{/settings/delete/{id}(id=${settings[index].id})}" class="edit_image">
-                    <img src="/img/deleteImg.png" alt="delete image">
+                    <img src="/img-res-orders/img/deleteImg.png" alt="delete image">
                 </a></td>
             </tr>
             </tbody>

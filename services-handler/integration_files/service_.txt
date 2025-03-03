@@ -1,0 +1,1 @@
+MyService{id=null, name='', description='', price=null, uri='', imageUri='null'}

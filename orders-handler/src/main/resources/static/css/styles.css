@@ -58,6 +58,11 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.title{
+    font-size: xx-large;
+    padding: 20px 0;
+}
+
 .setting_image > img {
     width: 30px;
     height: 30px;
