@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание ролей</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+<div class="container_order">
+    <div class="title">
+        <a th:href="@{/users/edit-roles-list}" class="edit_image"><img src="/static/img/home.png" alt="home image"/></a>
+        СОЗДАНИЕ НОВОЙ РОЛИ
+    </div>
+</div>
+<form action="#" th:action="@{/users/edit-roles-list/create}" th:object="${role}" method="post">
+    <div class="container">
+        <div>
+            <label class="text-field__label" for="name">Наименование роли</label>
+            <input class="text-field__input" type="text" th:field="*{name}" id="name" placeholder="ADMIN">
+        </div>
+        <div>
+            <label class="text-field__label" for="description">Описание роли</label>
+            <input class="text-field__input" type="text" th:field="*{description}" id="description" placeholder="Роль для исполнителя заказов">
+        </div>
+    </div>
+    <div class="btn_container">
+        <input class="button__create" type="submit" value="Сохранить">
+    </div>
+</form>
+</body>
+</html>

@@ -6,7 +6,12 @@
     <link rel="stylesheet" href="/static-res-orders/static/css/styles.css">
 </head>
 <body>
-<h2 class="h2">Создание параметров оплаты</h2>
+<div class="container_order">
+    <div class="title">
+        <a href="/settings" class="edit_image"><img src="/img-res-services/img/home.png" alt="home image"/></a>
+        СОЗДАНИЕ ПАРАМЕТРОВ ОПЛАТЫ
+    </div>
+</div>
 <form action="#" th:action="@{/settings/create}" th:object="${settings}" method="post">
     <div class="container">
         <div>

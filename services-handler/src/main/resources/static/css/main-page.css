@@ -1,0 +1,154 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 15px 0;
+}
+
+.btn_container {
+    text-align: -webkit-center;
+}
+
+.button__create {
+    margin-bottom: 0.25rem;
+    margin-top: 0.25rem;
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: "Calibri Light";
+    background-color: #c7c7c7;
+    height: 43px;
+    border: 2px solid #bdbdbd;
+    border-radius: 0.4rem;
+    width: 33%;
+}
+
+.edit_image {
+    width: 10%;
+    height: 100%;
+}
+
+.edit_image > img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain; /* Встраиваем картинку в контейнер. */
+    transition: 0.2s;
+}
+
+.container{
+    width: 100%;
+    max-width: 90vw;
+    margin: auto;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.edit_image:hover > img {
+    transform: scale(1.3);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.title{
+    font-size: xx-large;
+    padding: 20px 0;
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+#hero {
+    background: url('https://source.unsplash.com/1600x900/?nature,water') no-repeat center center/cover; /* Фоновое изображение */
+    color: #ffffff;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+#hero h1 {
+    font-size: 2.5em;
+}
+
+#hero h2 {
+    font-size: 1.5em;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #e8491d;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #35424a; /* Изменение цвета при наведении */
+}
+
+section {
+    padding: 40px 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.service-item {
+    margin-bottom: 20px; /* Отступы между услугами */
+}
+
+h2 {
+    color: #35424a;
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background: #35424a;
+    color: #ffffff;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Вертикальное отображение на мобильных */
+        align-items: center;
+    }
+
+    #hero h1 {        
+        font-size: 2em; /* Уменьшение размера заголовка на мобильных */
+    }
+
+    #hero h2 {
+        font-size: 1.2em; /* Уменьшение размера подзаголовка */
+    }
+
+    section {
+        padding: 20px; /* Уменьшение отступов на мобильных */
+        margin: 10px auto; 
+    }
+}
+

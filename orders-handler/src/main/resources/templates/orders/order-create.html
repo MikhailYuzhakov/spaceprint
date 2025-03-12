@@ -6,7 +6,12 @@
     <link rel="stylesheet" href="/static-res-orders/static/css/styles.css">
 </head>
 <body>
-<h2 class="h2">Создание нового заказа</h2>
+<div class="container_order">
+    <div class="title">
+        <a href="/orders" class="edit_image"><img src="/img-res-services/img/home.png" alt="home image"/></a>
+        СОЗДАНИЕ НОВОГО ЗАКАЗА
+    </div>
+</div>
 <form action="#" th:action="@{/orders/order-create}" th:object="${order}" method="post">
     <div class="container">
         <div>

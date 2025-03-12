@@ -37,6 +37,7 @@ public class OrderController {
     @GetMapping
     public String ordersPage(Model model) {
         List<Order> orders = service.getAllOrders();
+
         if (orders.isEmpty()) {
             return "redirect:" + "http://localhost:8080/orders/order-create";
         } else {

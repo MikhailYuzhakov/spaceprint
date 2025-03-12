@@ -6,11 +6,13 @@
     <link rel="stylesheet" href="/static-res-orders/static/css/styles.css">
 </head>
 <body>
-<div class="title">
-    <a href="http://localhost:8080/orders" class="edit_image">
-        <img src="/img-res-services/img/home.png" alt="home image"/>
-    </a>РЕДАКТИРОВАНИЕ ЗАКАЗА
+<div class="container_order">
+    <div class="title">
+        <a href="/orders" class="edit_image"><img src="/img-res-services/img/home.png" alt="home image"/></a>
+        РЕДАКТИРОВАНИЕ ЗАКАЗА
+    </div>
 </div>
+
 <form action="#" th:action="@{/orders/order-update}" th:object="${order}" method="post">
     <div class="container">
         <div>
@@ -58,17 +60,24 @@
             <input class="text-field__input" type="text" th:field="*{note}" id="note" placeholder="Примечание">
         </div>
         <div>
-            <label class="text-field__label" for="status-select" th:text="'Статус заказа (' + ${currentStatus} + ')'"></label>
+            <label class="text-field__label" for="status-select">Статус заказа</label>
             <select name="orderStatus" id="status-select">
-                <option value="0">Выберите статус</option>
-                <option th:each="status : ${statuses}" th:value="${status}" th:text="${status}"></option>
+                <option
+                        th:each="status : ${statuses}"
+                        th:value="${status}"
+                        th:text="${status}"
+                        th:selected="${status == currentStatus}">
+                </option>
             </select>
         </div>
         <div>
-            <label class="text-field__label" for="result-select"  th:text="'Результат (' + ${currentResult} + ')'"></label>
+            <label class="text-field__label" for="result-select">Результат</label>
             <select name="orderResult" id="result-select">
-                <option value="0">Выберите результат</option>
-                <option th:each="result : ${results}" th:value="${result}" th:text="${result}"></option>
+                <option th:each="result : ${results}"
+                        th:value="${result}"
+                        th:text="${result}"
+                        th:selected="${result == currentResult}">
+                </option>
             </select>
         </div>
         <div>

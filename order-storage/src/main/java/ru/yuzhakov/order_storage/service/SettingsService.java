@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import ru.yuzhakov.order_storage.model.Settings;
 import ru.yuzhakov.order_storage.repository.SettingsRepository;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -15,7 +16,9 @@ public class SettingsService {
     }
 
     public List<Settings> getAll() {
-        return repository.findAll();
+        List<Settings> settings = repository.findAll();
+        settings.sort(Comparator.comparing(Settings::getUpdateDate));
+        return settings;
     }
 
     public Settings get(Long id) {

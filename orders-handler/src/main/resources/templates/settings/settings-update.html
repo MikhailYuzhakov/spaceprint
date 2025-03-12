@@ -6,10 +6,11 @@
     <link rel="stylesheet" href="/static-res-orders/static/css/styles.css">
 </head>
 <body>
-<div class="title">
-    <a href="http://localhost:8080/orders" class="edit_image">
-        <img src="/img-res-services/img/home.png" alt="home image"/>
-    </a>РЕДАКТИРОВАНИЕ ПАРАМЕТРОВ ОПЛАТЫ
+<div class="container_order">
+    <div class="title">
+        <a href="/settings" class="edit_image"><img src="/img-res-services/img/home.png" alt="home image"/></a>
+        РЕДАКТИРОВАНИЕ ПАРАМЕТРОВ ОПЛАТЫ
+    </div>
 </div>
 <form action="#" th:action="@{/settings/update}" th:object="${settings}" method="post">
     <div class="container">

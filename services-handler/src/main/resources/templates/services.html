@@ -8,13 +8,19 @@
 <body>
     <div class="container">
         <div class="title">
+            <a href="/" class="edit_image">
+                <img src="/img-res-services/img/home.png" alt="home image"/>
+            </a>
             ПЕРЕЧЕНЬ УСЛУГ
             <a th:href="@{/services/editor}" class="edit_image">
                 <img src="/img-res-services/img/editImg.png" alt="settings image"/>
             </a>
+            <a href="/logout" class="edit_image">
+                <img src="/img-res-services/img/logout.png" alt="home image"/>
+            </a>
         </div>
         <div class="listProducts" th:object="${images}">
-            <a th:each="index : ${#numbers.sequence(0, #arrays.length(services) - 1)}" th:href="'http://localhost:8080/services/' + ${services[index].uri}" class="item">
+            <a th:each="index : ${#numbers.sequence(0, #arrays.length(services) - 1)}" th:href="'/services/' + ${services[index].uri}" class="item">
                 <img th:src="'data:image/jpeg;base64,' + ${images[index]}" onerror="this.src='/img-res-services/img/not_found.png'" alt="not found image"/>
                 <h2 th:text="${services[index].name}"></h2>
                 <div class="price" th:text="${services[index].price} + ' ₽'"></div>

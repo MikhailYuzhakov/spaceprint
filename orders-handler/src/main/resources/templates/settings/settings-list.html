@@ -9,10 +9,12 @@
 <div th:switch="${settings}">
     <h2 th:case="null">Параметров не найдено!</h2>
     <div th:case="*">
-        <div class="title">
-            <a href="http://localhost:8080/orders" class="edit_image">
-                <img src="/img-res-services/img/home.png" alt="home image"/>
-            </a>ПАРАМЕТРЫ РАСЧЕТА
+        <div class="container_order">
+            <div class="title">
+                <a href="/orders" class="edit_image"><img src="/img-res-services/img/home.png" alt="home image"/></a>
+                ПАРАМЕТРЫ РАСЧЕТА
+                <a href="/logout" class="edit_image"><img src="/img-res-services/img/logout.png" alt="home image"/></a>
+            </div>
         </div>
         <table class="table">
             <thead>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+<div th:switch="${roles}">
+    <h2 th:case="null">Ролей не найдено!</h2>
+    <div th:case="*">
+        <div class="container_order">
+            <div class="title">
+                <a href="/users" class="edit_image"><img src="/static/img/home.png" alt="home image"/></a>
+                СПИСОК РОЛЕЙ
+                <a href="/logout" class="edit_image"><img src="/static/img/logout.png" alt="logout image"/></a>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Наименование</th>
+                <th>Описание роли</th>
+                <th>Изменить</th>
+                <th>Удалить</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="role : ${roles}">
+                <td th:text="${role.id}"></td>
+                <td th:text="${role.name}"></td>
+                <td th:text="${role.description}"></td>
+                <td><a th:href="@{/users/edit-roles-list/update/{id}(id=${role.id})}" class="edit_image">
+                    <img src="/static/img/editImg.png" alt="edit image">
+                </a></td>
+                <td><a th:href="@{/users/edit-roles-list/delete/{id}(id=${role.id})}" class="edit_image">
+                    <img src="/static/img/deleteImg.png" alt="delete image">
+                </a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <form action="#" th:action="@{/users/edit-roles-list/create}" method="get">
+        <div class="btn_container">
+            <input class="button__create" type="submit" value="Создать">
+        </div>
+    </form>
+</div>
+</body>
+</html>

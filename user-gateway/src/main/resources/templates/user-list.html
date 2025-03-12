@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+<div th:switch="${users}">
+    <h2 th:case="null">Пользователей не найдено!</h2>
+    <div th:case="*">
+        <div class="container_order">
+            <div class="title">
+                <a href="/homepage" class="edit_image"><img src="/static/img/home.png" alt="home image"/></a>
+                СПИСОК ПОЛЬЗОВАТЕЛЕЙ
+                <a href="/logout" class="edit_image"><img src="/static/img/logout.png" alt="logout image"/></a>
+                <a href="/users/edit-roles-list" class="edit_image"><img src="/static/img/settings.png" alt="settings image"/></a>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Номер телефона</th>
+                <th>Адрес электронной почты</th>
+                <th>Логин</th>
+                <th>Дата создания</th>
+                <th>Роль</th>
+                <th>Изменить</th>
+                <th>Удалить</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.firstName}"></td>
+                <td th:text="${user.lastName}"></td>
+                <td th:text="${user.middleName}"></td>
+                <td th:text="${user.phoneNumber}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.formattedCreatedAt}"></td>
+                <td>
+                    <ul>
+                        <li th:each="role : ${user.roles}" th:text="${role.name}"></li>
+                    </ul>
+                </td>
+                <td><a th:href="@{/users/user-update/{id}(id=${user.id})}" class="edit_image">
+                    <img src="/static/img/editImg.png" alt="edit image">
+                </a></td>
+                <td><a th:href="@{/users/user-delete/{id}(id=${user.id})}" class="edit_image">
+                    <img src="/static/img/deleteImg.png" alt="delete image">
+                </a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -49,13 +49,30 @@
 }
 
 .setting_image {
-    display: flex;
     justify-content: flex-end;
 }
 
 .title_orders {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.container_order{
+    width: 100%;
+    max-width: 90vw;
+    margin: auto;
+    padding-top: 10px;
+    text-align: center;
+}
+
+select {
+    width: 10rem;
+    background-color: #c3f0c6;
+    border: #b2eeac 2px solid;
+}
+
+select>option {
+    background-color: #b8e1ba;
 }
 
 .title{

@@ -17,7 +17,7 @@ public class OrderService {
 
     public List<Order> getAll() {
         List<Order> orders = repository.findAll();
-        orders.sort(Comparator.comparingLong(Order::getId));
+        orders.sort(Comparator.comparing(Order::getDateStart));
         return orders;
     }
 

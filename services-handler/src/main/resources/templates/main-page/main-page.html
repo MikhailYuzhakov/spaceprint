@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Компания по разработке ПО</title>
+    <link rel="stylesheet" href="/static-res-services/static/css/main-page.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="title">
+                ДИМЛОМНАЯ РАБОТА GB ЮЖАКОВ М.С.
+                <a href="/services" class="title">Услуги</a>
+                <a href="/orders" class="title">Список заказов</a>
+                <a href="/logout" class="edit_image"><img src="/img-res-services/img/logout.png" alt="home image"/></a>
+                <a href="/users" class="edit_image"><img src="/img-res-services/img/users.png" alt="users image"/></a>
+                <form action="#" th:action="@{/register}" method="get">
+                    <div class="btn_container">
+                        <button type="submit" class="button__create">Зарегистрироваться</button>
+                    </div>
+                </form>
+                <form action="#" th:action="@{/login}" method="get">
+                    <div class="btn_container">
+                        <button type="submit" class="button__create">Войти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="hero">
+            <h2>Мы создаем программное обеспечение под заказ</h2>
+            <p>Наша команда профессионалов предлагает широкий спектр услуг, включая разработку ПО, 3D моделирование и многое другое.</p>
+            <a href="#services" class="btn">Узнать больше об услугах</a>
+        </section>
+
+        <section id="services">
+            <h2>Наши услуги</h2>
+            <ul>
+                <li>Разработка программного обеспечения</li>
+                <li>3D моделирование и визуализация</li>
+                <li>Консультирование по IT-вопросам</li>
+                <li>Поддержка и сопровождение проектов</li>
+            </ul>
+        </section>
+
+        <section id="orders">
+            <h2>Список заказов</h2>
+            <p>Перейдите на страницу со списком заказов, чтобы узнать о текущих проектах.</p>
+            <a href="#" class="btn">Перейти к заказам</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Ваша Компания. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

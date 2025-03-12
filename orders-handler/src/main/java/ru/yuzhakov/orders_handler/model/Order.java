@@ -11,7 +11,7 @@ import java.util.Date;
 
 @AllArgsConstructor
 @Data
-public class Order {
+public class Order implements Comparable<Order> {
     private Long id;
     private String description;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -27,14 +27,19 @@ public class Order {
     private String imageUri;
 
     @NotEmpty(message = "Время моделирования должно быть заполнено")
-    @PositiveOrZero(message = "Значание не должно быть отрицательным")
+    @PositiveOrZero(message = "Значение не должно быть отрицательным")
     private Integer modelingTime;
     @NotEmpty(message = "Время моделирования должно быть заполнено")
-    @PositiveOrZero(message = "Значание не должно быть отрицательным")
+    @PositiveOrZero(message = "Значение не должно быть отрицательным")
     private Integer printingTime;
     private Integer extraCharge;
     private Integer plasticCost;
     private Integer quantity;
     private String note;
     private Integer npv;
+
+    @Override
+    public int compareTo(Order comparebleOrder) {
+        return getDateStart().compareTo(comparebleOrder.getDateStart());
+    }
 }

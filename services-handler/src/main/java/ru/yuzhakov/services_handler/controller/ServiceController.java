@@ -70,7 +70,7 @@ public class ServiceController {
     @PostMapping("/create")
     public String createService(MyService myService) {
         service.editService(myService, false);
-        fileGateway.writeToFile("service_" + myService.getName() + ".txt", myService.toString());
+//        fileGateway.writeToFile("service_" + myService.getName() + ".txt", myService.toString());
         return "redirect:" + redirectGatewayServiceUrl;
     }
 

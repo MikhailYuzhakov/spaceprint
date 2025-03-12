@@ -3,12 +3,20 @@ server:
 
 logging:
   level:
+    io.r2dbc.spi: TRACE
+    org.springframework.data.r2dbc: TRACE
     org.springframework.cloud.gateway: DEBUG
 
 spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/spaceprint
+    username: postgres
+    password: 10031998
+
   application:
     name: user-gateway
   profiles:
     active: eclient
   config:
     import: configserver:http://localhost:8888
+
